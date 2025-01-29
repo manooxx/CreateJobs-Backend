@@ -53,7 +53,7 @@ const getJobsByCompany = async (req, res) => {
             return res.status(401).json({ message: "Unauthorized access" });
         }
 
-        console.log("Decoded Token User ID:", req.user.id); // Debugging
+        // console.log("Decoded Token User ID:", req.user.id); // Debugging
 
         const companyId = req.user.id;
 

@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "http://localhost:5173", // Specify frontend URL
+    origin: "https://create-job-frontend.vercel.app", // Specify frontend URL
     credentials: true, // Allow cookies and authorization headers
   }));
 
