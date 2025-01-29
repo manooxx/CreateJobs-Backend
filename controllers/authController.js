@@ -15,7 +15,7 @@ const registerCompany = async (req, res) => {
 
         const token = generateToken(company._id);
         const frontendURL = process.env.FRONTEND_URL || "http://localhost:3000"; // Use frontend URL
-        const verificationLink = `${frontendURL}verify-email/${token}`;
+        const verificationLink = `${frontendURL}/verify-email/${token}`;
 
         const emailContent = `
             <h2>Email Verification</h2>
