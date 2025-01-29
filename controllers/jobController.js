@@ -65,9 +65,9 @@ const getJobsByCompany = async (req, res) => {
         const jobs = await Job.find({ companyId: new mongoose.Types.ObjectId(companyId) })
             .populate("companyId", "name email");
 
-        if (jobs.length === 0) {
-            return res.status(201).json({ message: "No jobs found for this company" });
-        }
+        // if (jobs.length === 0) {
+        //     return res.status(201).json({ message: "No jobs found for this company" });
+        // }
 
         res.status(200).json(jobs);
     } catch (error) {
