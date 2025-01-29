@@ -67,7 +67,11 @@ const loginCompany = async (req, res) => {
         if (!isMatch) return res.status(400).json({ message: "Invalid email or password" });
 
         const token = generateToken(company._id);
-        res.cookie("token", token, { httpOnly: true }).json({ message: "Login successful", token });
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",  // Use secure cookies in production
+            sameSite: "None",  // Allow cross-origin cookie sharing
+        }).json({ message: "Login successful", token });
     } catch (error) {
         res.status(500).json({ message: "Server error", error });
     }

@@ -13,8 +13,10 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "https://create-job-frontend.vercel.app", // Specify frontend URL
-    credentials: true, // Allow cookies and authorization headers
+    origin: ["http://localhost:5173", "https://create-job-frontend.vercel.app"], // Specify frontend URL
+    credentials: true, // Allow cookies to be sent
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   }));
 
 
