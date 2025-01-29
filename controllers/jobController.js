@@ -66,7 +66,7 @@ const getJobsByCompany = async (req, res) => {
             .populate("companyId", "name email");
 
         if (jobs.length === 0) {
-            return res.status(404).json({ message: "No jobs found for this company" });
+            return res.status(201).json({ message: "No jobs found for this company" });
         }
 
         res.status(200).json(jobs);
